@@ -1,21 +1,22 @@
-package app_test
+package commands_test
 
 import (
 	"github.com/kns-it/wtf/internal/app"
+	"github.com/kns-it/wtf/pkg/commands"
 	"testing"
 )
 
 func TestServiceOrPort_SetService(t *testing.T) {
-	sop := app.ServiceOrPort{}
+	sop := commands.ServiceOrPort{}
 	sop.SetService(app.HTTP)
 }
 
 func TestCommandContext_SetServiceOrPortWithoutError(t *testing.T) {
 
-	sop := app.ServiceOrPort{}
+	sop := commands.ServiceOrPort{}
 	sop.SetService(app.HTTPS)
 
-	ctx := app.CommandContext{}
+	ctx := commands.CommandContext{}
 	err := ctx.SetServiceOrPort(sop)
 
 	if err != nil {
@@ -26,9 +27,9 @@ func TestCommandContext_SetServiceOrPortWithoutError(t *testing.T) {
 
 func TestCommandContext_SetServiceOrPortWithError(t *testing.T) {
 
-	sop := app.ServiceOrPort{}
+	sop := commands.ServiceOrPort{}
 
-	ctx := app.CommandContext{}
+	ctx := commands.CommandContext{}
 	err := ctx.SetServiceOrPort(sop)
 
 	if err == nil {

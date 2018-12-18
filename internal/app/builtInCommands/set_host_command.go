@@ -1,14 +1,20 @@
-package commands
+package builtInCommands
 
 import (
 	"flag"
 	"fmt"
-	"github.com/kns-it/wtf/internal/app"
+	"github.com/kns-it/wtf/pkg/commands"
 )
 
 type SetHostCommand struct {
-	Context *app.CommandContext
-	flags *flag.FlagSet
+	context *commands.CommandContext
+	flags   *flag.FlagSet
+}
+
+func NewSetHostCommand(ctx *commands.CommandContext) commands.Command {
+	return &SetHostCommand{
+		context: ctx,
+	}
 }
 
 func (shc *SetHostCommand) Text() string {
@@ -31,5 +37,5 @@ func (shc *SetHostCommand) Call() {
 		fmt.Println("Argument count does not match")
 	}
 
-	shc.Context.SetHost(args[0])
+	shc.context.SetHost(args[0])
 }

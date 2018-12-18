@@ -1,9 +1,11 @@
 package app
 
+import "github.com/kns-it/wtf/pkg/commands"
+
 const (
-	FTP Service = 21
-	SSH Service = 22
-	SMTP Service = 25
-	HTTP Service = 80
-	HTTPS Service = 443
+	FTP   commands.Service = 21
+	SSH   commands.Service = 22
+	SMTP  commands.Service = 25
+	HTTP  commands.Service = 80
+	HTTPS commands.Service = 443
 )

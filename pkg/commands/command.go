@@ -10,4 +10,3 @@ type Command interface {
 	Flags() *flag.FlagSet
 	Call()
 }
-
